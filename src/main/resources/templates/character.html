@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{character.name}}</title>
+</head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<style>
+body,h1 {font-family: "Raleway", sans-serif}
+body, html {height: 100%}
+.bgimg {
+    background-image: url('https://i.pinimg.com/originals/ca/af/19/caaf198372f936563d2198e22780131c.jpg');
+    min-height: 100%;
+    background-position: center;
+    background-size: cover;
+}
+</style>
+<body>
+    <center>
+        <h1>{{character.name}}</h1>
+        <h2><a href="/game/characters">Retour</a></h2>
+        <h2>{{character.level}}</h2>
+        <table>
+            <tr bgcolor="#DDDDDD">
+                <th style="padding:0 15px 0 15px;">Tête</th>
+                <th style="padding:0 15px 0 15px;">Corps</th>
+                <th style="padding:0 15px 0 15px;">Mains</th>
+                <th style="padding:0 15px 0 15px;">Jambes</th>
+                <th style="padding:0 15px 0 15px;">Pieds</th>
+                <th style="padding:0 15px 0 15px;">Arme</th>
+            </tr>
+            <tr>
+                <td style="padding:0 15px 0 15px;">{{character.stuff.head}}</td>
+                <td style="padding:0 15px 0 15px;">{{character.stuff.body}}</td>
+                <td style="padding:0 15px 0 15px;">{{character.stuff.hands}}</td>
+                <td style="padding:0 15px 0 15px;">{{character.stuff.legs}}</td>
+                <td style="padding:0 15px 0 15px;">{{character.stuff.feet}}</td>
+                <td style="padding:0 15px 0 15px;">{{character.stuff.weapon}}</td>
+            </tr>
+        </table>
+    </center>
+</body>
+</html>
