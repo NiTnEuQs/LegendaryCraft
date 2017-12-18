@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Création d'un personnage</title>
+</head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<style>
+body,h1 {font-family: "Raleway", sans-serif}
+body, html {height: 100%}
+.bgimg {
+    background-image: url('https://i.pinimg.com/originals/ca/af/19/caaf198372f936563d2198e22780131c.jpg');
+    min-height: 100%;
+    background-position: center;
+    background-size: cover;
+}
+</style>
+<body>
+
+    <div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
+        <div class="w3-container w3-light-green">
+            <div class="w3-display-topleft w3-padding-large w3-xxlarge">
+                <a href="/game/characters" class="w3-button w3-hover-light-green"><i class="fa fa-arrow-left"></i></a>
+            </div>
+            <div class="w3-center">
+                <h1 class="w3-jumbo">Création d'un personnage</h1>
+            </div>
+        </div>
+        <div class="w3-container w3-light-blue w3-center">
+            <form action="/game/characters" th:action="@{/game/characters}" th:object="${Character}" method="post">
+                <p>
+                    Nom:
+                    <input type="text" th:field="*{name}" />
+                </p>
+                <p>
+                    Role:
+                    <select th:field="*{role}">
+                        {{#roles}}<option value="{{id}}">{{text}}</option>{{/roles}}
+                    </select>
+                </p>
+                <input value="1" type="hidden" />
+                <p>
+                    <input class="w3-btn" type="submit" value="Créer le personnage" />
+                    <input class="w3-btn" type="reset" value="Recommencer" />
+                </p>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

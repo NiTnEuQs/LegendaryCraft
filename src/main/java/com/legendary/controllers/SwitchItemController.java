@@ -12,25 +12,16 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
 @Controller
-public class CharacterController {
+public class SwitchItemController {
 
     private final AtomicLong counterItem = new AtomicLong();
 
-    @RequestMapping("/game/characters/create")
-    public String createCharacter(Model model) {
-        model.addAttribute("roles", Role.values());
-
-        return "createCharacter";
-    }
-
-    @RequestMapping("/game/characters/{id}")
-    public String character(Model model, @PathVariable long id) {
-        Character character = new Character(id, "Anthonin", Role.ARCHER, 1);
+    @RequestMapping("/game/characters/{cid}/switch/{iid}")
+    public String switchItem(Model model, @PathVariable long cid, @PathVariable String iid) {
+        Character character = new Character(cid, "Anthonin", Role.WARRIOR, 1);
         Item head = new ArmorHelmetWood(counterItem.incrementAndGet(), 1, character);
         Item body = new ArmorChestplateWood(counterItem.incrementAndGet(), 1, character);
         Item hands = new ArmorGauntletsWood(counterItem.incrementAndGet(), 1, character);
@@ -42,9 +33,36 @@ public class CharacterController {
         character.setStuff(stuff);
         character.setBaseCharacteristics(characteristics);
 
-        model.addAttribute("character", character);
+        Item item;
 
-        return "character";
+        switch (iid) {
+            case "head":
+                item = character.getStuff().getHead();
+                break;
+            case "body":
+                item = character.getStuff().getBody();
+                break;
+            case "hands":
+                item = character.getStuff().getHands();
+                break;
+            case "legs":
+                item = character.getStuff().getLegs();
+                break;
+            case "feet":
+                item = character.getStuff().getFeet();
+                break;
+            case "weapon":
+                item = character.getStuff().getWeapon();
+                break;
+            default:
+                item = new ArmorHelmetWood(counterItem.incrementAndGet(), 1, character);
+                break;
+        }
+
+        model.addAttribute("character", character);
+        model.addAttribute("item", item);
+
+        return "switchItem";
     }
 
 }

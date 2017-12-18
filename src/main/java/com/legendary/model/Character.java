@@ -1,25 +1,40 @@
 package com.legendary.model;
 
+import java.util.concurrent.atomic.AtomicLong;
+
 public class Character {
 
     private final long id;
     private String name;
+    private Role role;
     private int level;
     private Stuff stuff;
     private Characteristics baseCharacteristics;
     private Characteristics additiveCharacteristics;
 
-    public Character(long id, String name, int level) {
+    private final static AtomicLong counterCharacter = new AtomicLong();
+
+    public Character() {
+        this.id = counterCharacter.incrementAndGet();
+        /*
+        this.name = "";
+        this.role = Role.WARRIOR;
+        this.level = 1;
+        */
+    }
+
+    public Character(long id, String name, Role role, int level) {
         this.id = id;
         this.name = name;
+        this.role = role;
         this.level = level;
         this.stuff = new Stuff();
         this.baseCharacteristics = new Characteristics();
         this.additiveCharacteristics = new Characteristics();
     }
 
-    public Character(long id, String name, int level, Stuff stuff, Characteristics baseCharacteristics) {
-        this(id, name, level);
+    public Character(long id, String name, Role role, int level, Stuff stuff, Characteristics baseCharacteristics) {
+        this(id, name, role, level);
         this.stuff = stuff;
         this.baseCharacteristics = baseCharacteristics;
     }
@@ -36,6 +51,14 @@ public class Character {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
     }
 
     public int getLevel() {

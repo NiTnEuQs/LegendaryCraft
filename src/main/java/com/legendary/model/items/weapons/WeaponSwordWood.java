@@ -1,11 +1,12 @@
 package com.legendary.model.items.weapons;
 
+import com.legendary.model.Character;
 import com.legendary.model.items.Item;
 
 public class WeaponSwordWood extends Item {
 
-    public WeaponSwordWood(long id, int maxStack) {
-        super(id, "Epée en bois", maxStack);
+    public WeaponSwordWood(long id, int maxStack, Character owner) {
+        super(id, "Epée en bois", maxStack, owner);
     }
 
     @Override

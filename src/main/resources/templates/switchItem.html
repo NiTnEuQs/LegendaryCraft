@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Legendary Craft</title>
+    <title>Switcher ...</title>
 </head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -23,28 +23,20 @@ body, html {height: 100%}
     <div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
         <div class="w3-container w3-light-green">
             <div class="w3-display-topleft w3-padding-large w3-xxlarge">
-                <a href="/game" class="w3-button w3-hover-light-green"><i class="fa fa-arrow-left"></i></a>
+                <a href="/game/characters/{{character.id}}" class="w3-button w3-hover-light-green"><i class="fa fa-arrow-left"></i></a>
             </div>
             <div class="w3-center">
-                <h1 class="w3-jumbo">Legendary Craft</h1>
+                <h1 class="w3-jumbo">Switcher ...</h1>
             </div>
         </div>
         <div class="w3-center">
-            <div class="w3-container w3-blue">
-                Choisissez un personnage
-            </div>
-            <div class="w3-bar-block w3-light-blue">
-                <a href="/game/characters/create" class="w3-bar-item w3-button w3-hover-pale-blue">
-                    <img style="width:4%; height:auto;" src="/img/plus.png"/>
-                    Créer un nouveau personnage
+            <div class="w3-container w3-blue">{{item.name}} avec ...</div>
+            {{#character.inventory}}
+                <a href="/game/characters/{{character.id}}?switch1={{item.id}}&switch2={{item.index}}"
+                   class="w3-light-blue w3-hover-pale-blue">
+                    {{item.name}}
                 </a>
-                {{#characters}}
-                    <a href="/game/characters/{{id}}" class="w3-bar-item w3-button w3-hover-pale-blue">
-                        <img style="width:3%; height:auto;" src="/img/class/{{role.imgName}}"/>
-                        {{name}} ({{role}} niveau {{level}})
-                    </a>
-                {{/characters}}
-            </div>
+            {{/character.inventory}}
         </div>
     </div>
 

@@ -1,11 +1,12 @@
 package com.legendary.model.items.armor;
 
+import com.legendary.model.Character;
 import com.legendary.model.items.Item;
 
 public class ArmorChestplateWood extends Item {
 
-    public ArmorChestplateWood(long id, int maxStack) {
-        super(id, "Plastron en bois", maxStack);
+    public ArmorChestplateWood(long id, int maxStack, Character owner) {
+        super(id, "Plastron en bois", maxStack, owner);
     }
 
     @Override

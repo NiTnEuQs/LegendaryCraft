@@ -2,6 +2,7 @@ package com.legendary.model;
 
 public class Characteristics {
 
+    private int hp, maxHp;
     private int physicalDamage;
     private int magicalDamage;
     private int physicalResistance;
@@ -11,10 +12,12 @@ public class Characteristics {
     private int agility;
 
     public Characteristics() {
-        this(0, 0, 0, 0, 0, 0, 0);
+        this(0, 0, 0, 0, 0, 0, 0, 0, 0);
     }
 
-    public Characteristics(int strength, int intelligence, int agility, int physicalDamage, int magicalDamage, int physicalResistance, int magicalResistance) {
+    public Characteristics(int hp, int maxHp, int strength, int intelligence, int agility, int physicalDamage, int magicalDamage, int physicalResistance, int magicalResistance) {
+        this.hp = hp;
+        this.maxHp = maxHp;
         this.strength = strength;
         this.intelligence = intelligence;
         this.agility = agility;

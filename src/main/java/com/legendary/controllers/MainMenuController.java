@@ -8,12 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class MainMenuController {
 
     @RequestMapping("/game")
-    public String mainMenu(Model model) {
-        String pseudo = "Arthas";
-
-        model.addAttribute("pseudo", pseudo);
-
-        return "main_menu";
+    public String mainMenu() {
+        return "mainMenu";
     }
 
 }

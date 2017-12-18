@@ -17,6 +17,13 @@ public abstract class Item {
         this.maxStack = maxStack;
     }
 
+    public Item(long id, String name, int maxStack, Character owner) {
+        this.id = id;
+        this.name = name;
+        this.maxStack = maxStack;
+        this.owner = owner;
+    }
+
     public long getId() {
         return id;
     }

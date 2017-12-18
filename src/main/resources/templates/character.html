@@ -6,6 +6,7 @@
 </head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <style>
 body,h1 {font-family: "Raleway", sans-serif}
@@ -18,28 +19,141 @@ body, html {height: 100%}
 }
 </style>
 <body>
-    <center>
-        <h1>{{character.name}}</h1>
-        <h2><a href="/game/characters">Retour</a></h2>
-        <h2>{{character.level}}</h2>
-        <table>
-            <tr bgcolor="#DDDDDD">
-                <th style="padding:0 15px 0 15px;">Tête</th>
-                <th style="padding:0 15px 0 15px;">Corps</th>
-                <th style="padding:0 15px 0 15px;">Mains</th>
-                <th style="padding:0 15px 0 15px;">Jambes</th>
-                <th style="padding:0 15px 0 15px;">Pieds</th>
-                <th style="padding:0 15px 0 15px;">Arme</th>
-            </tr>
-            <tr>
-                <td style="padding:0 15px 0 15px;">{{character.stuff.head}}</td>
-                <td style="padding:0 15px 0 15px;">{{character.stuff.body}}</td>
-                <td style="padding:0 15px 0 15px;">{{character.stuff.hands}}</td>
-                <td style="padding:0 15px 0 15px;">{{character.stuff.legs}}</td>
-                <td style="padding:0 15px 0 15px;">{{character.stuff.feet}}</td>
-                <td style="padding:0 15px 0 15px;">{{character.stuff.weapon}}</td>
-            </tr>
-        </table>
-    </center>
+
+    <div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
+        <div class="w3-container w3-light-green">
+            <div class="w3-display-topleft w3-padding-large w3-xxlarge">
+                <a href="/game/characters" class="w3-button w3-hover-light-green"><i class="fa fa-arrow-left"></i></a>
+            </div>
+            <div class="w3-center">
+                <h1 class="w3-jumbo">{{character.name}}</h1>
+            </div>
+        </div>
+        <div class="w3-center">
+            <table class="w3-table w3-centered w3-light-blue">
+                <tr class="w3-blue">
+                    <th colspan="6">{{character.role}} (Niveau {{character.level}})</th>
+                </tr>
+                <tr>
+                    <td style="width:20%; vertical-align:middle;">
+                        <div class="w3-left">Points de vie</div>
+                        <div class="w3-right">{{character.baseCharacteristics.hp}}/{{character.baseCharacteristics.maxHp}}</div>
+                    </td>
+                    <td style="width:20%; vertical-align:middle;"></td>
+                    <td rowspan="6" style="width:40%; vertical-align:middle;">
+                        <img style="width:40%; height:auto;" src="/img/class/{{character.role.imgName}}"/>
+                    </td>
+                    <td class="w3-hover-pale-blue" style="width:20%; vertical-align:middle;">
+                        <a href="/game/characters/{{character.id}}/{{character.stuff.head.id}}"
+                           class="w3-button w3-hover-pale-blue">
+                            {{character.stuff.head}}
+                        </a>
+                        <a href="/game/characters/{{character.id}}/switch/head"
+                           title="Changer d'équipement"
+                           class="w3-button w3-hover-pale-blue w3-right">
+                            <i class="fa fa-exchange"></i>
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:20%; vertical-align:middle;">
+                        <div class="w3-left">Force</div>
+                        <div class="w3-right">{{character.baseCharacteristics.strength}}</div>
+                    </td>
+                    <td style="width:20%; vertical-align:middle;"></td>
+                    <td class="w3-hover-pale-blue" style="vertical-align:middle;">
+                        <a href="/game/characters/{{character.id}}/{{character.stuff.body.id}}"
+                           class="w3-button w3-hover-pale-blue">
+                            {{character.stuff.body}}
+                        </a>
+                        <a href="/game/characters/{{character.id}}/switch/body"
+                           title="Changer d'équipement"
+                           class="w3-button w3-hover-pale-blue w3-right">
+                            <i class="fa fa-exchange"></i>
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:20%; vertical-align:middle;">
+                        <div class="w3-left">Intelligence</div>
+                        <div class="w3-right">{{character.baseCharacteristics.intelligence}}</div>
+                    </td>
+                    <td style="width:20%; vertical-align:middle;"></td>
+                    <td class="w3-hover-pale-blue" style="vertical-align:middle;">
+                        <a href="/game/characters/{{character.id}}/{{character.stuff.hands.id}}"
+                           class="w3-button w3-hover-pale-blue">
+                            {{character.stuff.hands}}
+                        </a>
+                        <a href="/game/characters/{{character.id}}/switch/hands"
+                           title="Changer d'équipement"
+                           class="w3-button w3-hover-pale-blue w3-right">
+                            <i class="fa fa-exchange"></i>
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:20%; vertical-align:middle;">
+                        <div class="w3-left">Agilité</div>
+                        <div class="w3-right">{{character.baseCharacteristics.agility}}</div>
+                    </td>
+                    <td style="width:20%"></td>
+                    <td class="w3-hover-pale-blue" style="vertical-align:middle;">
+                        <a href="/game/characters/{{character.id}}/{{character.stuff.legs.id}}"
+                           class="w3-button w3-hover-pale-blue">
+                            {{character.stuff.legs}}
+                        </a>
+                        <a href="/game/characters/{{character.id}}/switch/legs"
+                           title="Changer d'équipement"
+                           class="w3-button w3-hover-pale-blue w3-right">
+                            <i class="fa fa-exchange"></i>
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:20%; vertical-align:middle;">
+                        <div class="w3-left">Dégâts physiques</div>
+                        <div class="w3-right">{{character.baseCharacteristics.physicalDamage}}</div>
+                    </td>
+                    <td style="width:20%; vertical-align:middle;">
+                        <div class="w3-left">Résistance physique</div>
+                        <div class="w3-right">{{character.baseCharacteristics.physicalResistance}}</div>
+                    </td>
+                    <td class="w3-hover-pale-blue" style="vertical-align:middle;">
+                        <a href="/game/characters/{{character.id}}/{{character.stuff.feet.id}}"
+                           class="w3-button w3-hover-pale-blue">
+                            {{character.stuff.feet}}
+                        </a>
+                        <a href="/game/characters/{{character.id}}/switch/feet"
+                           title="Changer d'équipement"
+                           class="w3-button w3-hover-pale-blue w3-right">
+                            <i class="fa fa-exchange"></i>
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:20%; vertical-align:middle;">
+                        <div class="w3-left">Dégâts magiques</div>
+                        <div class="w3-right">{{character.baseCharacteristics.magicalDamage}}</div>
+                    </td>
+                    <td style="width:20%; vertical-align:middle;">
+                        <div class="w3-left">Résistance magique</div>
+                        <div class="w3-right">{{character.baseCharacteristics.magicalResistance}}</div>
+                    </td>
+                    <td class="w3-hover-pale-blue" style="vertical-align:middle;">
+                        <a href="/game/characters/{{character.id}}/{{character.stuff.weapon.id}}"
+                           class="w3-button w3-hover-pale-blue">
+                            {{character.stuff.weapon}}
+                        </a>
+                        <a href="/game/characters/{{character.id}}/switch/weapon"
+                           title="Changer d'arme"
+                           class="w3-button w3-hover-pale-blue w3-right">
+                            <i class="fa fa-exchange"></i>
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
 </body>
 </html>
