@@ -10,7 +10,6 @@ public class Characteristics {
     private int initialSagesse = 0;
     private int initialLife = 0;
     private int initialIntelligence = 0;
-    private int experience = 0;
 
     public int getInitialForce() {
         return initialForce;
@@ -44,27 +43,21 @@ public class Characteristics {
         this.initialSagesse = initialSagesse;
     }
 
-    public int getInitalLife() {
+    public int getInitialLife() {
         return initialLife;
     }
 
-    public void setInitalLife(int initalLife) {
-        this.initialLife = initalLife;
+    public void setInitialLife(int initialLife) {
+        this.initialLife = initialLife;
     }
 
-    public int getInitalIntelligence() {
+    public int getInitialIntelligence() {
         return initialIntelligence;
     }
 
-    public void setInitalIntelligence(int initalIntelligence) {
-        this.initialIntelligence = initalIntelligence;
+    public void setInitialIntelligence(int initialIntelligence) {
+        this.initialIntelligence = initialIntelligence;
     }
 
-    public int getExperience() {
-        return experience;
-    }
 
-    public void setExperience(int experience) {
-        this.experience = experience;
-    }
 }

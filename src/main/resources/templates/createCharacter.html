@@ -41,7 +41,7 @@ body, html {height: 100%}
                         {{#roles}}<option value="{{id}}">{{text}}</option>{{/roles}}
                     </select>
                 </p>
-                <input value="1" type="hidden" />
+                <input th:field="*{level}" value="1" type="hidden" />
                 <p>
                     <input class="w3-btn" type="submit" value="Créer le personnage" />
                     <input class="w3-btn" type="reset" value="Recommencer" />
