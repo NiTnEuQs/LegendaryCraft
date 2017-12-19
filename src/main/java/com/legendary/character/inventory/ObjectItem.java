@@ -17,7 +17,7 @@ public class ObjectItem {
     private String description;
     private String ownerId;
     private Position position;
-    private ArrayList<ObjectEffect> effects = new ArrayList();
+    private ArrayList<ObjectEffect> effects = new ArrayList<>();
     private int maxDurability = 100000;
     private double wearSpeed= 100;
     private int creationTime;
