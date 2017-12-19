@@ -108,10 +108,7 @@ public class CharacterController {
         lastItem.setPosition(Position.INVENTORY);
         newItem.setPosition(tmp);
 
-        System.out.println(lastItem);
-        System.out.println(tmp);
-        System.out.println(lastItem.getPosition());
-        System.out.println(newItem.getPosition());
+        characterRepository.save(character);
 
         model.addAttribute("character", character);
 
