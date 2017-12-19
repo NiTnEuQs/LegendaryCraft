@@ -80,7 +80,7 @@ public class CharacterController {
     }
 
     @RequestMapping(value = "/game/characters/{id}/switch/{name}/{newName}", method = RequestMethod.GET)
-    public String character(Model model, @RequestParam String id, @RequestParam String name, @RequestParam String newName) {
+    public String character(Model model, @PathVariable String id, @PathVariable String name, @PathVariable String newName) {
         Character character = characterRepository.findById(id);
         ObjectItem lastItem = character.getInventory().getObjectItemByName(name);
         ObjectItem newItem = character.getInventory().getObjectItemByName(newName);
@@ -89,10 +89,28 @@ public class CharacterController {
         lastItem.setPosition(Position.INVENTORY);
         newItem.setPosition(tmp);
 
-        System.out.println("Name: " + name + "/" + newName);
+        System.out.println(lastItem);
+        System.out.println(tmp);
+        System.out.println(lastItem.getPosition());
+        System.out.println(newItem.getPosition());
 
         model.addAttribute("character", character);
-        model.addAttribute("item", lastItem);
+
+        model.addAttribute("arme", character.getInventory().getArme());
+        model.addAttribute("bottes", character.getInventory().getBottes());
+        model.addAttribute("ceinture", character.getInventory().getCeinture());
+        model.addAttribute("cape", character.getInventory().getCape());
+        model.addAttribute("chapeau", character.getInventory().getChapeau());
+        model.addAttribute("amulette", character.getInventory().getAmulette());
+        model.addAttribute("anneau1", character.getInventory().getAnneau1());
+        model.addAttribute("anneau2", character.getInventory().getAnneau2());
+
+        model.addAttribute("force", character.getForce());
+        model.addAttribute("intelligence", character.getIntelligence());
+        model.addAttribute("agilite", character.getAgilite());
+        model.addAttribute("sagesse", character.getSagesse());
+        model.addAttribute("life", character.getLife());
+        model.addAttribute("chance", character.getChance());
 
         return "character";
     }
