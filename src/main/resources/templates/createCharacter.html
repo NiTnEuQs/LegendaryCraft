@@ -32,8 +32,14 @@ body, html {height: 100%}
         <div class="w3-container w3-light-blue w3-center">
 
             <form method="post" action="/game/createCharacter">
-                <label>pseudo : </label><input type="text" name="name" id="pseudo"/><br>
-                <label>niveau : </label><input type="range" name="level" id="level" min="0" max="100" value="50" oninput="result.value=parseInt(value)"/>
+                <label>Pseudo : </label><input type="text" name="name" id="pseudo"/><br>
+                <label>Classe: </label>
+                <select id="breed" name="breed">
+                    {{#breeds}}
+                    <option value="{{name}}">{{name}}</option>
+                    {{/breeds}}
+                </select><br>
+                <label>Niveau : </label><input type="range" name="level" id="level" min="0" max="100" value="50" oninput="result.value=parseInt(value)"/>
                 <output name="result">--</output><br>
                 <input type="submit" value="Ajouter" />
             </form>

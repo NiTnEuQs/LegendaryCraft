@@ -4,6 +4,7 @@ import com.legendary.character.enums.Breed;
 import com.legendary.character.enums.Position;
 import com.legendary.character.inventory.ObjectItem;
 import com.oracle.tools.packager.Log;
+import com.sun.corba.se.spi.activation.RepositoryOperations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -31,15 +32,21 @@ public class CharacterController {
     }
 
     @RequestMapping(value="/game/createCharacter", method=RequestMethod.POST)
-    public String newPersonnageP(Model model,@RequestParam String name,@RequestParam int level) {
-        Character character = new Character(name,Breed.CRA,level);
+    public String newPersonnageP(Model model,@RequestParam String name,@RequestParam String breed, @RequestParam int level) {
+        Character character = new Character(name, Breed.valueOf(breed),level);
         characterRepository.save(character);
+
+        List<Character> characters = characterRepository.findAll();
+        model.addAttribute("characters", characters);
+
         return "characters";
     }
 
 
     @GetMapping("/game/createCharacter")
     public String newPersonnageP(Model model) {
+        model.addAttribute("breeds", Breed.values());
+
         return "createCharacter";
     }
 
