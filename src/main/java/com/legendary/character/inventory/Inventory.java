@@ -46,7 +46,7 @@ public class Inventory {
 
     public ObjectItem getObjectItemByName(String name) {
         for (ObjectItem objectItem : objectsItem) {
-            if (objectItem.getName() == name) {
+            if (objectItem.getName().equals(name)) {
                 return objectItem;
             }
         }
