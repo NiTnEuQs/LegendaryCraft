@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -72,10 +73,10 @@ public class CharacterController {
     public String character(Model model, @PathVariable String id, @PathVariable Position position) {
         Character character = characterRepository.findById(id);
         ObjectItem item = character.getInventory().getObjectItemByPosition(position);
-
+        ArrayList <ObjectItem> inventory =  character.getInventory().getObjectsItemInInventory();
         model.addAttribute("character", character);
         model.addAttribute("item", item);
-
+        model.addAttribute("inventory",inventory);
         return "switchItem";
     }
 

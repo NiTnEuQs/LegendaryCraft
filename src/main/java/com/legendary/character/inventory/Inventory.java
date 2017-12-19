@@ -106,6 +106,16 @@ public class Inventory {
         return objectsItem;
     }
 
+    public ArrayList<ObjectItem> getObjectsItemInInventory() {
+        ArrayList<ObjectItem> maList = new ArrayList();
+        for (ObjectItem objectItem : objectsItem) {
+            if(objectItem.getPosition() == Position.INVENTORY){
+                maList.add(objectItem);
+            }
+        }
+            return maList;
+    }
+
     public void setObjectsItem(ArrayList<ObjectItem> objectsItem) {
         this.objectsItem = objectsItem;
     }

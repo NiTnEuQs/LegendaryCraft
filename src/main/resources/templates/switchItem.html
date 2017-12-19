@@ -31,12 +31,12 @@ body, html {height: 100%}
         </div>
         <div class="w3-center">
             <div class="w3-bar-block w3-blue">{{item.name}} avec ...</div>
-            {{#character.inventory.objectsItem}}
+            {{#inventory}}
                 <a href="/game/characters/{{character.id}}/switch/{{item.name}}/{{name}}"
                    class="w3-bar-item w3-light-blue w3-hover-pale-blue">
                     {{name}}
                 </a>
-            {{/character.inventory.objectsItem}}
+            {{/inventory}}
         </div>
     </div>
 
