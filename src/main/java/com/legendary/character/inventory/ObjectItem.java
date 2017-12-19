@@ -3,6 +3,8 @@ package com.legendary.character.inventory;
 import com.legendary.character.enums.Position;
 import org.springframework.data.annotation.Id;
 
+import java.util.ArrayList;
+
 /**
  * Created by ludovicgoldak on 19/12/2017.
  */
@@ -14,6 +16,7 @@ public class ObjectItem {
     private String description;
     private String ownerId;
     private Position position;
+    private ArrayList<ObjectEffect> effects = new ArrayList();
 
     public ObjectItem() {
 
@@ -69,5 +72,13 @@ public class ObjectItem {
     @Override
     public String toString() {
         return this.name;
+    }
+
+    public ArrayList<ObjectEffect> getEffects() {
+        return effects;
+    }
+
+    public void setEffects(ArrayList<ObjectEffect> effects) {
+        this.effects = effects;
     }
 }

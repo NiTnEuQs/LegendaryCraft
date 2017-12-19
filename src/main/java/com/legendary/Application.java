@@ -2,12 +2,9 @@ package com.legendary;
 
 import com.legendary.character.Character;
 import com.legendary.character.CharacterRepository;
-import com.legendary.character.characteristics.Characteristics;
 import com.legendary.character.enums.Breed;
 import com.legendary.character.enums.Position;
-import com.legendary.character.inventory.Inventory;
 import com.legendary.character.inventory.ObjectItem;
-import com.legendary.character.inventory.ObjectItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -48,12 +45,16 @@ public class Application implements CommandLineRunner {
        // objectItemRepository.deleteAll();
         // save a couple of customers
         Character character1 = new Character("Ludo", Breed.SACRIEUR,3);
-        Character character2 = new Character("Antho", Breed.IOP,3);
         ObjectItem item1 = new ObjectItem("Faux du paysan", "Permet de cultiver le blé et faire quelque dégats",character1.getId(), Position.ARME);
         //objectItemRepository.save(item1);
         character1.getInventory().getObjectsItem().add(item1);
+        character1.getStats().setInitalIntelligence(100);
+        character1.getStats().setInitalLife(1000);
+        character1.getStats().setInitialAgilite(200);
+        character1.getStats().setInitialForce(300);
+        character1.getStats().setInitialSagesse(100);
+
         characterRepository.save(character1);
-        characterRepository.save(character2);
     }
 
 }

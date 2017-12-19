@@ -2,6 +2,7 @@ package com.legendary.character;
 
 import com.legendary.character.characteristics.Characteristics;
 import com.legendary.character.enums.Breed;
+import com.legendary.character.enums.TypeStats;
 import com.legendary.character.inventory.Inventory;
 import org.springframework.data.annotation.Id;
 
@@ -55,41 +56,30 @@ public class Character {
         this.level = level;
     }
 
-    // Functions
-
-  /*  public void updateStuffEffects() {
-        setAdditiveCharacteristics(new Characteristics());
-
-        stuff.updateEffects();
-    }*/
-
-  /*  public void addPhysicalDamage(int amount) {
-        getAdditiveCharacteristics().setPhysicalDamage(getAdditiveCharacteristics().getPhysicalDamage() + amount);
+    public int getForce() {
+        return stats.getInitialForce() + inventory.getAdditionalStats(TypeStats.FORCE);
     }
 
-    public void addMagicalDamage(int amount) {
-        getAdditiveCharacteristics().setMagicalDamage(getAdditiveCharacteristics().getMagicalDamage() + amount);
+    public int getChance() {
+        return stats.getInitialChance() + inventory.getAdditionalStats(TypeStats.CHANCE);
     }
 
-    public void addPhysicalResistance(int amount) {
-        getAdditiveCharacteristics().setPhysicalDamage(getAdditiveCharacteristics().getPhysicalDamage() + amount);
+    public int getAgilite() {
+        return stats.getInitialAgilite() + inventory.getAdditionalStats(TypeStats.AGILITE);
     }
 
-    public void addMagicalResistance(int amount) {
-        getAdditiveCharacteristics().setMagicalDamage(getAdditiveCharacteristics().getMagicalDamage() + amount);
+    public int getSagesse() {
+        return stats.getInitialSagesse() + inventory.getAdditionalStats(TypeStats.SAGESSE);
     }
 
-    public void addStrength(int amount) {
-        getAdditiveCharacteristics().setStrength(getAdditiveCharacteristics().getStrength() + amount);
+    public int getLife() {
+        return stats.getInitalLife() + inventory.getAdditionalStats(TypeStats.LIFE);
     }
 
-    public void addIntelligence(int amount) {
-        getAdditiveCharacteristics().setIntelligence(getAdditiveCharacteristics().getIntelligence() + amount);
+    public int getIntelligence() {
+        return stats.getInitalIntelligence() + inventory.getAdditionalStats(TypeStats.INTELLIGENCE);
     }
 
-    public void addAgility(int amount) {
-        getAdditiveCharacteristics().setAgility(getAdditiveCharacteristics().getAgility() + amount);
-    }*/
 
     public String getId() {
         return id;

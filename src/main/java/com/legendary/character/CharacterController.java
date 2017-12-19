@@ -2,13 +2,10 @@ package com.legendary.character;
 
 import com.legendary.character.enums.Breed;
 import com.legendary.character.inventory.ObjectItem;
-import com.legendary.character.inventory.ObjectItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
@@ -17,8 +14,6 @@ import java.util.concurrent.atomic.AtomicLong;
 public class CharacterController {
     @Autowired
     private CharacterRepository characterRepository;
-    @Autowired
-    private ObjectItemRepository objectItemRepository;
 
 
     private final AtomicLong counterItem = new AtomicLong();
@@ -32,6 +27,12 @@ public class CharacterController {
 
         return "characters";
     }
+    @PostMapping("/game/characters")
+    public String characters(@ModelAttribute Character character) {
+
+        return "characters";
+    }
+
 
     @RequestMapping("/game/characters/create")
     public String createCharacter(Model model) {
