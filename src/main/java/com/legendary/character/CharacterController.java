@@ -43,9 +43,17 @@ public class CharacterController {
     @RequestMapping("/game/characters/{id}")
     public String character(Model model, @PathVariable String id) {
         Character character = characterRepository.findById(id);
+
         model.addAttribute("character", character);
-        ObjectItem arme = character.getInventory().getArme();
-        model.addAttribute("arme",arme);
+
+        model.addAttribute("arme", character.getInventory().getArme());
+        model.addAttribute("bottes", character.getInventory().getBottes());
+        model.addAttribute("ceinture", character.getInventory().getCeinture());
+        model.addAttribute("cape", character.getInventory().getCape());
+        model.addAttribute("chapeau", character.getInventory().getChapeau());
+        model.addAttribute("amulette", character.getInventory().getAmulette());
+        model.addAttribute("anneau1", character.getInventory().getAnneau1());
+        model.addAttribute("anneau2", character.getInventory().getAnneau2());
 
         return "character";
     }

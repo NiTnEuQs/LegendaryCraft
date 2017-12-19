@@ -8,8 +8,8 @@ public class Characteristics {
     private int initialChance = 0;
     private int initialAgilite = 0;
     private int initialSagesse = 0;
-    private int initalLife = 0;
-    private int initalIntelligence = 0;
+    private int initialLife = 0;
+    private int initialIntelligence = 0;
     private int experience = 0;
     private int life = 0;
     private int maxLife = 0;
@@ -46,20 +46,20 @@ public class Characteristics {
         this.initialSagesse = initialSagesse;
     }
 
-    public int getInitalLife() {
-        return initalLife;
+    public int getInitialLife() {
+        return initialLife;
     }
 
-    public void setInitalLife(int initalLife) {
-        this.initalLife = initalLife;
+    public void setInitialLife(int initialLife) {
+        this.initialLife = initialLife;
     }
 
-    public int getInitalIntelligence() {
-        return initalIntelligence;
+    public int getInitialIntelligence() {
+        return initialIntelligence;
     }
 
-    public void setInitalIntelligence(int initalIntelligence) {
-        this.initalIntelligence = initalIntelligence;
+    public void setInitialIntelligence(int initialIntelligence) {
+        this.initialIntelligence = initialIntelligence;
     }
 
     public int getExperience() {
@@ -68,5 +68,21 @@ public class Characteristics {
 
     public void setExperience(int experience) {
         this.experience = experience;
+    }
+
+    public int getLife() {
+        return life;
+    }
+
+    public void setLife(int life) {
+        this.life = life;
+    }
+
+    public int getMaxLife() {
+        return maxLife;
+    }
+
+    public void setMaxLife(int maxLife) {
+        this.maxLife = maxLife;
     }
 }
