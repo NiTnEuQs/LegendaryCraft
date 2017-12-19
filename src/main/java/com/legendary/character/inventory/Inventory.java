@@ -44,6 +44,15 @@ public class Inventory {
         return getObjectItemEmpty();
     }
 
+    public ObjectItem getObjectItemByName(String name) {
+        for (ObjectItem objectItem : objectsItem) {
+            if (objectItem.getName() == name) {
+                return objectItem;
+            }
+        }
+        return getObjectItemEmpty();
+    }
+
     public ObjectItem getArme() {
         return getObjectItemByPosition(Position.ARME);
     }

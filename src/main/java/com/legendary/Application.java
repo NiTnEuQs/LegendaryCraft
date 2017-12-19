@@ -54,12 +54,20 @@ public class Application implements CommandLineRunner {
         ObjectItem item4 = new ObjectItem("Anneau du bouftou", "Superbe anneau du bouftou",character1.getId(), Position.ANNEAU1);
         ObjectItem item5 = new ObjectItem("Botte du bouftou", "Superbe botte du bouftout",character1.getId(), Position.BOTTES);
         ObjectItem item6 = new ObjectItem("Ceinture du bouftout", "Permet de cultiver le blé et faire quelque dégats",character1.getId(), Position.CEINTURE);
+        ObjectItem item7 = new ObjectItem("Ceinture du tofu", "Blablabla",character1.getId(), Position.INVENTORY);
 
 
         //objectItemRepository.save(item1);
         character1.getInventory().getObjectsItem().add(item1);
-        character1.getStats().setInitalIntelligence(100);
-        character1.getStats().setInitalLife(1000);
+        character1.getInventory().getObjectsItem().add(item2);
+        character1.getInventory().getObjectsItem().add(item3);
+        character1.getInventory().getObjectsItem().add(item4);
+        character1.getInventory().getObjectsItem().add(item5);
+        character1.getInventory().getObjectsItem().add(item6);
+        character1.getInventory().getObjectsItem().add(item7);
+
+        character1.getStats().setInitialIntelligence(100);
+        character1.getStats().setInitialLife(1000);
         character1.getStats().setInitialAgilite(200);
         character1.getStats().setInitialForce(300);
         character1.getStats().setInitialSagesse(100);

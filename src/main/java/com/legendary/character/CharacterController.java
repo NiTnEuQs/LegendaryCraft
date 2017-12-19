@@ -1,7 +1,9 @@
 package com.legendary.character;
 
 import com.legendary.character.enums.Breed;
+import com.legendary.character.enums.Position;
 import com.legendary.character.inventory.ObjectItem;
+import com.oracle.tools.packager.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -55,6 +57,42 @@ public class CharacterController {
         model.addAttribute("amulette", character.getInventory().getAmulette());
         model.addAttribute("anneau1", character.getInventory().getAnneau1());
         model.addAttribute("anneau2", character.getInventory().getAnneau2());
+
+        model.addAttribute("force", character.getForce());
+        model.addAttribute("intelligence", character.getIntelligence());
+        model.addAttribute("agilite", character.getAgilite());
+        model.addAttribute("sagesse", character.getSagesse());
+        model.addAttribute("life", character.getLife());
+        model.addAttribute("chance", character.getChance());
+
+        return "character";
+    }
+
+    @RequestMapping("/game/characters/{id}/switch/{position}")
+    public String character(Model model, @PathVariable String id, @PathVariable Position position) {
+        Character character = characterRepository.findById(id);
+        ObjectItem item = character.getInventory().getObjectItemByPosition(position);
+
+        model.addAttribute("character", character);
+        model.addAttribute("item", item);
+
+        return "switchItem";
+    }
+
+    @RequestMapping(value = "/game/characters/{id}/switch/{name}/{newName}", method = RequestMethod.GET)
+    public String character(Model model, @RequestParam String id, @RequestParam String name, @RequestParam String newName) {
+        Character character = characterRepository.findById(id);
+        ObjectItem lastItem = character.getInventory().getObjectItemByName(name);
+        ObjectItem newItem = character.getInventory().getObjectItemByName(newName);
+
+        Position tmp = lastItem.getPosition();
+        lastItem.setPosition(Position.INVENTORY);
+        newItem.setPosition(tmp);
+
+        System.out.println("Name: " + name + "/" + newName);
+
+        model.addAttribute("character", character);
+        model.addAttribute("item", lastItem);
 
         return "character";
     }

@@ -73,11 +73,11 @@ public class Character {
     }
 
     public int getLife() {
-        return stats.getInitalLife() + inventory.getAdditionalStats(TypeStats.LIFE);
+        return stats.getInitialLife() + inventory.getAdditionalStats(TypeStats.LIFE);
     }
 
     public int getIntelligence() {
-        return stats.getInitalIntelligence() + inventory.getAdditionalStats(TypeStats.INTELLIGENCE);
+        return stats.getInitialIntelligence() + inventory.getAdditionalStats(TypeStats.INTELLIGENCE);
     }
 
 

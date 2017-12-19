@@ -37,10 +37,9 @@ body, html {height: 100%}
                 <tr>
                     <td style="width:20%; vertical-align:middle;">
                         <div class="w3-left">Points de vie</div>
-                        <div class="w3-right">{{character.stats.life}}/{{character.stats.maxLife}}</div>
+                        <div class="w3-right">{{life}}</div>
                     </td>
-                    <td style="width:20%; vertical-align:middle;"></td>
-                    <td rowspan="9" style="width:40%; vertical-align:middle;">
+                    <td rowspan="9" style="width:60%; vertical-align:middle;">
                         <img style="width:40%; height:auto;" src="/img/class/{{character.breed.imgName}}"/>
                     </td>
                     <td class="w3-hover-pale-blue" style="width:20%; vertical-align:middle;">
@@ -48,7 +47,7 @@ body, html {height: 100%}
                            class="w3-button w3-hover-pale-blue">
                             {{arme}}
                         </a>
-                        <a href="/game/characters/{{character.id}}/switch/head"
+                        <a href="/game/characters/{{character.id}}/switch/1"
                            title="Changer d'équipement"
                            class="w3-button w3-hover-pale-blue w3-right">
                             <i class="fa fa-exchange"></i>
@@ -58,15 +57,14 @@ body, html {height: 100%}
                 <tr>
                     <td style="width:20%; vertical-align:middle;">
                         <div class="w3-left">Force</div>
-                        <div class="w3-right">{{character.stats.initialForce}}</div>
+                        <div class="w3-right">{{force}}</div>
                     </td>
-                    <td style="width:20%; vertical-align:middle;"></td>
                     <td class="w3-hover-pale-blue" style="vertical-align:middle;">
                         <a href="/game/characters/{{character.id}}/{{bottes}}"
                            class="w3-button w3-hover-pale-blue">
                             {{bottes}}
                         </a>
-                        <a href="/game/characters/{{character.id}}/switch/body"
+                        <a href="/game/characters/{{character.id}}/switch/2"
                            title="Changer d'équipement"
                            class="w3-button w3-hover-pale-blue w3-right">
                             <i class="fa fa-exchange"></i>
@@ -76,15 +74,14 @@ body, html {height: 100%}
                 <tr>
                     <td style="width:20%; vertical-align:middle;">
                         <div class="w3-left">Intelligence</div>
-                        <div class="w3-right">{{character.stats.initialIntelligence}}</div>
+                        <div class="w3-right">{{intelligence}}</div>
                     </td>
-                    <td style="width:20%; vertical-align:middle;"></td>
                     <td class="w3-hover-pale-blue" style="vertical-align:middle;">
                         <a href="/game/characters/{{character.id}}/{{ceinture}}"
                            class="w3-button w3-hover-pale-blue">
                             {{ceinture}}
                         </a>
-                        <a href="/game/characters/{{character.id}}/switch/hands"
+                        <a href="/game/characters/{{character.id}}/switch/{{ceinture.position}}"
                            title="Changer d'équipement"
                            class="w3-button w3-hover-pale-blue w3-right">
                             <i class="fa fa-exchange"></i>
@@ -94,15 +91,14 @@ body, html {height: 100%}
                 <tr>
                     <td style="width:20%; vertical-align:middle;">
                         <div class="w3-left">Agilité</div>
-                        <div class="w3-right">{{character.stats.initialAgilite}}</div>
+                        <div class="w3-right">{{agilite}}</div>
                     </td>
-                    <td style="width:20%"></td>
                     <td class="w3-hover-pale-blue" style="vertical-align:middle;">
                         <a href="/game/characters/{{character.id}}/{{cape}}"
                            class="w3-button w3-hover-pale-blue">
                             {{cape}}
                         </a>
-                        <a href="/game/characters/{{character.id}}/switch/legs"
+                        <a href="/game/characters/{{character.id}}/switch/4"
                            title="Changer d'équipement"
                            class="w3-button w3-hover-pale-blue w3-right">
                             <i class="fa fa-exchange"></i>
@@ -112,15 +108,14 @@ body, html {height: 100%}
                 <tr>
                     <td style="width:20%; vertical-align:middle;">
                         <div class="w3-left">Sagesse</div>
-                        <div class="w3-right">{{character.stats.initialSagesse}}</div>
+                        <div class="w3-right">{{sagesse}}</div>
                     </td>
-                    <td style="width:20%; vertical-align:middle;"></td>
                     <td class="w3-hover-pale-blue" style="vertical-align:middle;">
                         <a href="/game/characters/{{character.id}}/{{chapeau}}"
                            class="w3-button w3-hover-pale-blue">
                             {{chapeau}}
                         </a>
-                        <a href="/game/characters/{{character.id}}/switch/feet"
+                        <a href="/game/characters/{{character.id}}/switch/5"
                            title="Changer d'équipement"
                            class="w3-button w3-hover-pale-blue w3-right">
                             <i class="fa fa-exchange"></i>
@@ -130,15 +125,14 @@ body, html {height: 100%}
                 <tr>
                     <td style="width:20%; vertical-align:middle;">
                         <div class="w3-left">Vitalité</div>
-                        <div class="w3-right">{{character.stats.initialLife}}</div>
+                        <div class="w3-right">{{life}}</div>
                     </td>
-                    <td style="width:20%; vertical-align:middle;"></td>
                     <td class="w3-hover-pale-blue" style="vertical-align:middle;">
                         <a href="/game/characters/{{character.id}}/{{amulette}}"
                            class="w3-button w3-hover-pale-blue">
                             {{amulette}}
                         </a>
-                        <a href="/game/characters/{{character.id}}/switch/weapon"
+                        <a href="/game/characters/{{character.id}}/switch/6"
                            title="Changer d'arme"
                            class="w3-button w3-hover-pale-blue w3-right">
                             <i class="fa fa-exchange"></i>
@@ -148,15 +142,14 @@ body, html {height: 100%}
                 <tr>
                     <td style="width:20%; vertical-align:middle;">
                         <div class="w3-left">Chance</div>
-                        <div class="w3-right">{{character.stats.initialChance}}</div>
+                        <div class="w3-right">{{chance}}</div>
                     </td>
-                    <td style="width:20%; vertical-align:middle;"></td>
                     <td class="w3-hover-pale-blue" style="vertical-align:middle;">
                         <a href="/game/characters/{{character.id}}/{{anneau1}}"
                            class="w3-button w3-hover-pale-blue">
                             {{anneau1}}
                         </a>
-                        <a href="/game/characters/{{character.id}}/switch/weapon"
+                        <a href="/game/characters/{{character.id}}/switch/9"
                            title="Changer d'arme"
                            class="w3-button w3-hover-pale-blue w3-right">
                             <i class="fa fa-exchange"></i>
@@ -164,17 +157,13 @@ body, html {height: 100%}
                     </td>
                 </tr>
                 <tr>
-                    <td style="width:20%; vertical-align:middle;">
-                        <div class="w3-left">Expérience</div>
-                        <div class="w3-right">{{character.stats.experience}}</div>
-                    </td>
                     <td style="width:20%; vertical-align:middle;"></td>
                     <td class="w3-hover-pale-blue" style="vertical-align:middle;">
                         <a href="/game/characters/{{character.id}}/{{anneau2}}"
                            class="w3-button w3-hover-pale-blue">
                             {{anneau2}}
                         </a>
-                        <a href="/game/characters/{{character.id}}/switch/weapon"
+                        <a href="/game/characters/{{character.id}}/switch/7"
                            title="Changer d'arme"
                            class="w3-button w3-hover-pale-blue w3-right">
                             <i class="fa fa-exchange"></i>
