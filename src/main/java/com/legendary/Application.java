@@ -4,9 +4,11 @@ import com.legendary.character.Character;
 import com.legendary.character.CharacterRepository;
 import com.legendary.character.enums.Breed;
 import com.legendary.character.enums.Position;
+import com.legendary.character.enums.TypeItem;
 import com.legendary.character.enums.TypeStats;
 import com.legendary.character.inventory.ObjectEffect;
 import com.legendary.character.inventory.ObjectItem;
+import javafx.geometry.Pos;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -44,18 +46,18 @@ public class Application implements CommandLineRunner {
        // objectItemRepository.deleteAll();
         // save a couple of customers
         Character character1 = new Character("Ludo", Breed.SACRIEUR,3);
-        ObjectItem item1 = new ObjectItem("Faux du paysan", "Permet de cultiver le blé et faire quelque dégats",character1.getId(), Position.ARME);
+        ObjectItem item1 = new ObjectItem("Faux du paysan", "Permet de cultiver le blé et faire quelque dégats",character1.getId(), Position.ARME, TypeItem.ARME);
         item1.getEffects().add(new ObjectEffect(TypeStats.FORCE,40));
         item1.getEffects().add(new ObjectEffect(TypeStats.INTELLIGENCE,40));
-        ObjectItem item2 = new ObjectItem("Coiffe du bouftou", "Superbe coif de bouf",character1.getId(), Position.CHAPEAU);
+        ObjectItem item2 = new ObjectItem("Coiffe du bouftou", "Superbe coif de bouf",character1.getId(), Position.CHAPEAU, TypeItem.CHAPEAU);
         item2.getEffects().add(new ObjectEffect(TypeStats.FORCE,30));
         item2.getEffects().add(new ObjectEffect(TypeStats.INTELLIGENCE,30));
-        ObjectItem item3 = new ObjectItem("Cape du bouftou", "Superbe cape de bouftout",character1.getId(), Position.CAPE);
-        ObjectItem item4 = new ObjectItem("Anneau du bouftou", "Superbe anneau du bouftou",character1.getId(), Position.ANNEAU1);
-        ObjectItem item5 = new ObjectItem("Botte du bouftou", "Superbe botte du bouftout",character1.getId(), Position.BOTTES);
-        ObjectItem item6 = new ObjectItem("Ceinture du bouftout", "Permet de cultiver le blé et faire quelque dégats",character1.getId(), Position.CEINTURE);
-        ObjectItem item7 = new ObjectItem("Ceinture du tofu", "Ceinture du tofu hyper puissante",character1.getId(), Position.INVENTORY);
-        ObjectItem item8 = new ObjectItem("Coif du tofu", "Coif du tofu hyper puissante",character1.getId(), Position.INVENTORY);
+        ObjectItem item3 = new ObjectItem("Cape du bouftou", "Superbe cape de bouftout",character1.getId(), Position.CAPE, TypeItem.CAPE   );
+        ObjectItem item4 = new ObjectItem("Anneau du bouftou", "Superbe anneau du bouftou",character1.getId(), Position.ANNEAU1, TypeItem.ANNEAU);
+        ObjectItem item5 = new ObjectItem("Botte du bouftou", "Superbe botte du bouftout",character1.getId(), Position.BOTTES, TypeItem.BOTTES);
+        ObjectItem item6 = new ObjectItem("Ceinture du bouftout", "Permet de cultiver le blé et faire quelque dégats",character1.getId(), Position.CEINTURE,TypeItem.CEINTURE);
+        ObjectItem item7 = new ObjectItem("Ceinture du tofu", "Ceinture du tofu hyper puissante",character1.getId(), Position.INVENTORY,TypeItem.CEINTURE);
+        ObjectItem item8 = new ObjectItem("Coif du tofu", "Coif du tofu hyper puissante",character1.getId(), Position.INVENTORY,TypeItem.CHAPEAU);
 
 
         //objectItemRepository.save(item1);
