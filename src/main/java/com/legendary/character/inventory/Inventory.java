@@ -2,6 +2,7 @@ package com.legendary.character.inventory;
 
 import com.legendary.character.Character;
 import com.legendary.character.enums.Position;
+import com.legendary.character.enums.TypeItem;
 import com.legendary.character.enums.TypeStats;
 import jdk.nashorn.internal.ir.annotations.Ignore;
 
@@ -114,6 +115,15 @@ public class Inventory {
             }
         }
             return maList;
+    }
+    public ArrayList<ObjectItem> getObjectsItemByType(TypeItem typeItem) {
+        ArrayList<ObjectItem> maList = new ArrayList();
+        for (ObjectItem objectItem : objectsItem) {
+            if(objectItem.getTypeItem() == typeItem){
+                maList.add(objectItem);
+            }
+        }
+        return maList;
     }
 
     public void setObjectsItem(ArrayList<ObjectItem> objectsItem) {

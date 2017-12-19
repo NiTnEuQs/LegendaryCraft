@@ -1,6 +1,7 @@
 package com.legendary.character.inventory;
 
 import com.legendary.character.enums.Position;
+import com.legendary.character.enums.TypeItem;
 import org.springframework.data.annotation.Id;
 
 import java.util.ArrayList;
@@ -21,17 +22,19 @@ public class ObjectItem {
     private int maxDurability = 100000;
     private double wearSpeed= 100;
     private int creationTime;
+    private TypeItem typeItem;
 
     public ObjectItem() {
 
     }
 
-    public ObjectItem(String name, String description, String ownerId, Position position) {
+    public ObjectItem(String name, String description, String ownerId, Position position, TypeItem typeItem) {
         this.name = name;
         this.description = description;
         this.ownerId = ownerId;
         this.position = position;
         this.creationTime = (int) (new Date().getTime()/1000);
+        this.typeItem = typeItem;
     }
 
     public double getDurability(){
@@ -119,5 +122,13 @@ public class ObjectItem {
 
     public void setWearSpeed(double wearSpeed) {
         this.wearSpeed = wearSpeed;
+    }
+
+    public TypeItem getTypeItem() {
+        return typeItem;
+    }
+
+    public void setTypeItem(TypeItem typeItem) {
+        this.typeItem = typeItem;
     }
 }

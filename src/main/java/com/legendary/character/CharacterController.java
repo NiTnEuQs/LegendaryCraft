@@ -91,7 +91,7 @@ public class CharacterController {
     public String character(Model model, @PathVariable String id, @PathVariable Position position) {
         Character character = characterRepository.findById(id);
         ObjectItem item = character.getInventory().getObjectItemByPosition(position);
-        ArrayList <ObjectItem> inventory =  character.getInventory().getObjectsItemInInventory();
+        ArrayList <ObjectItem> inventory =  character.getInventory().getObjectsItemByType(item.getTypeItem());
         model.addAttribute("character", character);
         model.addAttribute("item", item);
         model.addAttribute("inventory",inventory);
