@@ -8,11 +8,9 @@ public class Characteristics {
     private int initialChance = 0;
     private int initialAgilite = 0;
     private int initialSagesse = 0;
-    private int initalLife = 0;
-    private int initalIntelligence = 0;
+    private int initialLife = 0;
+    private int initialIntelligence = 0;
     private int experience = 0;
-    private int life = 0;
-    private int maxLife = 0;
 
     public int getInitialForce() {
         return initialForce;
@@ -47,19 +45,19 @@ public class Characteristics {
     }
 
     public int getInitalLife() {
-        return initalLife;
+        return initialLife;
     }
 
     public void setInitalLife(int initalLife) {
-        this.initalLife = initalLife;
+        this.initialLife = initalLife;
     }
 
     public int getInitalIntelligence() {
-        return initalIntelligence;
+        return initialIntelligence;
     }
 
     public void setInitalIntelligence(int initalIntelligence) {
-        this.initalIntelligence = initalIntelligence;
+        this.initialIntelligence = initalIntelligence;
     }
 
     public int getExperience() {

@@ -4,6 +4,8 @@ import com.legendary.character.Character;
 import com.legendary.character.CharacterRepository;
 import com.legendary.character.enums.Breed;
 import com.legendary.character.enums.Position;
+import com.legendary.character.enums.TypeStats;
+import com.legendary.character.inventory.ObjectEffect;
 import com.legendary.character.inventory.ObjectItem;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -14,9 +16,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class Application implements CommandLineRunner {
     @Autowired
     private CharacterRepository characterRepository;
-
-    @Autowired
-    private ObjectItemRepository objectItemRepository;
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
@@ -46,6 +45,17 @@ public class Application implements CommandLineRunner {
         // save a couple of customers
         Character character1 = new Character("Ludo", Breed.SACRIEUR,3);
         ObjectItem item1 = new ObjectItem("Faux du paysan", "Permet de cultiver le blé et faire quelque dégats",character1.getId(), Position.ARME);
+        item1.getEffects().add(new ObjectEffect(TypeStats.FORCE,40));
+        item1.getEffects().add(new ObjectEffect(TypeStats.INTELLIGENCE,40));
+        ObjectItem item2 = new ObjectItem("Coiffe du bouftou", "Superbe coif de bouf",character1.getId(), Position.CHAPEAU);
+        item2.getEffects().add(new ObjectEffect(TypeStats.FORCE,30));
+        item2.getEffects().add(new ObjectEffect(TypeStats.INTELLIGENCE,30));
+        ObjectItem item3 = new ObjectItem("Cape du bouftou", "Superbe cape de bouftout",character1.getId(), Position.CAPE);
+        ObjectItem item4 = new ObjectItem("Anneau du bouftou", "Superbe anneau du bouftou",character1.getId(), Position.ANNEAU1);
+        ObjectItem item5 = new ObjectItem("Botte du bouftou", "Superbe botte du bouftout",character1.getId(), Position.BOTTES);
+        ObjectItem item6 = new ObjectItem("Ceinture du bouftout", "Permet de cultiver le blé et faire quelque dégats",character1.getId(), Position.CEINTURE);
+
+
         //objectItemRepository.save(item1);
         character1.getInventory().getObjectsItem().add(item1);
         character1.getStats().setInitalIntelligence(100);
