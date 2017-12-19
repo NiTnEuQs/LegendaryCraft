@@ -4,6 +4,7 @@ import com.legendary.character.enums.Position;
 import org.springframework.data.annotation.Id;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * Created by ludovicgoldak on 19/12/2017.
@@ -17,6 +18,9 @@ public class ObjectItem {
     private String ownerId;
     private Position position;
     private ArrayList<ObjectEffect> effects = new ArrayList();
+    private int maxDurability = 100000;
+    private double wearSpeed= 100;
+    private int creationTime;
 
     public ObjectItem() {
 
@@ -27,6 +31,16 @@ public class ObjectItem {
         this.description = description;
         this.ownerId = ownerId;
         this.position = position;
+        this.creationTime = (int) (new Date().getTime()/1000);
+    }
+
+    public double getDurability(){
+        int i = (int) (new Date().getTime()/1000);
+        int dureeUtilisation = i - creationTime;
+        double durabiltiy = maxDurability - ( dureeUtilisation * wearSpeed);
+        if (durabiltiy < 0)
+            return 0;
+        else return durabiltiy;
     }
 
     public String getName() {
@@ -80,5 +94,30 @@ public class ObjectItem {
 
     public void setEffects(ArrayList<ObjectEffect> effects) {
         this.effects = effects;
+    }
+
+    public int getCreationTime() {
+        return creationTime;
+    }
+
+    public void setCreationTime(int creationTime) {
+        this.creationTime = creationTime;
+    }
+
+
+    public int getMaxDurability() {
+        return maxDurability;
+    }
+
+    public void setMaxDurability(int maxDurability) {
+        this.maxDurability = maxDurability;
+    }
+
+    public double getWearSpeed() {
+        return wearSpeed;
+    }
+
+    public void setWearSpeed(double wearSpeed) {
+        this.wearSpeed = wearSpeed;
     }
 }

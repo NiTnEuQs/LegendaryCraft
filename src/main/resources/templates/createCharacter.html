@@ -30,24 +30,17 @@ body, html {height: 100%}
             </div>
         </div>
         <div class="w3-container w3-light-blue w3-center">
-            <form action="/game/characters" th:action="@{/game/characters}" th:object="${Character}" method="post">
-                <p>
-                    Nom:
-                    <input type="text" th:field="*{name}" />
-                </p>
-                <p>
-                    Role:
-                    <select th:field="*{breed}">
-                        {{#roles}}<option value="{{id}}">{{text}}</option>{{/roles}}
-                    </select>
-                </p>
-                <input th:field="*{level}" value="1" type="hidden" />
-                <p>
-                    <input class="w3-btn" type="submit" value="Créer le personnage" />
-                    <input class="w3-btn" type="reset" value="Recommencer" />
-                </p>
+
+            <form method="post" action="/game/createCharacter">
+                <label>pseudo : </label><input type="text" name="name" id="pseudo"/><br>
+                <label>niveau : </label><input type="range" name="level" id="level" min="0" max="100" value="50" oninput="result.value=parseInt(value)"/>
+                <output name="result">--</output><br>
+                <input type="submit" value="Ajouter" />
             </form>
         </div>
+
+
+
     </div>
 
 </body>

@@ -89,9 +89,11 @@ public class Inventory {
         int value = 0;
         for (ObjectItem objectItem : objectsItem) {
             if (objectItem.getPosition() != Position.INEXISTANT && objectItem.getPosition() != Position.INVENTORY){
-                for(ObjectEffect objectEffect: objectItem.getEffects()){
-                    if(objectEffect.getTypeStats() == typestats){
-                        value += objectEffect.getValue();
+                if(objectItem.getDurability() > 0){
+                    for(ObjectEffect objectEffect: objectItem.getEffects()){
+                        if(objectEffect.getTypeStats() == typestats){
+                            value += objectEffect.getValue();
+                        }
                     }
                 }
             }

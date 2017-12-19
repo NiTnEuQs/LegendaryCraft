@@ -29,17 +29,17 @@ public class CharacterController {
 
         return "characters";
     }
-    @PostMapping("/game/characters")
-    public String characters(@ModelAttribute Character character) {
 
+    @RequestMapping(value="/game/createCharacter", method=RequestMethod.POST)
+    public String newPersonnageP(Model model,@RequestParam String name,@RequestParam int level) {
+        Character character = new Character(name,Breed.CRA,level);
+        characterRepository.save(character);
         return "characters";
     }
 
 
-    @RequestMapping("/game/characters/create")
-    public String createCharacter(Model model) {
-        model.addAttribute("roles", Breed.values());
-
+    @GetMapping("/game/createCharacter")
+    public String newPersonnageP(Model model) {
         return "createCharacter";
     }
 
