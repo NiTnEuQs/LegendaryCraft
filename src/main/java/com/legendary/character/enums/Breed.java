@@ -1,17 +1,18 @@
-package com.legendary.model;
+package com.legendary.character.enums;
 
-public enum Role {
+public enum Breed {
 
-    WARRIOR("Guerrier", "warrior.png"),
-    ARCHER("Archer", "archer.png"),
-    MAGICIAN("Magicien", "magician.png"),
-    TANK("Défenseur", "tank.png");
+    IOP("Iop","warrior.png"),
+    CRA("Cra","archer.png"),
+    FECA("Feca","magician.png"),
+    SACRIEUR("Sacrieur","tank.png");
+
 
     private final int id;
     private final String text;
     private final String imgName;
 
-    Role(final String text, final String imgName) {
+    Breed(final String text, final String imgName) {
         this.id = ordinal();
         this.text = text;
         this.imgName = imgName;
@@ -23,3 +24,4 @@ public enum Role {
     }
 
 }
+

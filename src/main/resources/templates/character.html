@@ -32,16 +32,16 @@ body, html {height: 100%}
         <div class="w3-center">
             <table class="w3-table w3-centered w3-light-blue">
                 <tr class="w3-blue">
-                    <th colspan="6">{{character.role}} (Niveau {{character.level}})</th>
+                    <th colspan="6">{{character.breed}} (Niveau {{character.level}})</th>
                 </tr>
                 <tr>
                     <td style="width:20%; vertical-align:middle;">
                         <div class="w3-left">Points de vie</div>
-                        <div class="w3-right">{{character.baseCharacteristics.hp}}/{{character.baseCharacteristics.maxHp}}</div>
+                        <div class="w3-right">{{character.stats.life}}/{{character.stats.am}}</div>
                     </td>
                     <td style="width:20%; vertical-align:middle;"></td>
                     <td rowspan="6" style="width:40%; vertical-align:middle;">
-                        <img style="width:40%; height:auto;" src="/img/class/{{character.role.imgName}}"/>
+                        <img style="width:40%; height:auto;" src="/img/class/{{character.breed.imgName}}"/>
                     </td>
                     <td class="w3-hover-pale-blue" style="width:20%; vertical-align:middle;">
                         <a href="/game/characters/{{character.id}}/{{character.stuff.head.id}}"
